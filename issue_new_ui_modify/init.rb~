@@ -1,0 +1,20 @@
+require 'redmine'
+
+#Hooks 
+require_dependency 'view_issues_new_top_hook_listener'
+require_dependency 'view_issues_history_journal_bottom_hook_listener'
+require_dependency 'view_issues_show_details_bottom_hook_listener'
+#require_dependency 'view_issues_show_description_bottom_hook_listener'
+
+#Patches to the Redmine Core, Will not work in developement mode
+require_dependency 'issues_controller_patch'
+
+
+Redmine::Plugin.register :issue_new_ui_modify do
+  name 'Issue New Ui Modify plugin'
+  author 'nmgfrank'
+  description 'This is a plugin for Redmine'
+  version '0.0.1'
+  url 'http://nmgfrankblog.sinaapp.com/'
+  author_url 'http://nmgfrankblog.sinaapp.com/'
+end

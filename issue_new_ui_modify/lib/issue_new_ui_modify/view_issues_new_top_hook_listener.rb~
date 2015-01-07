@@ -1,0 +1,5 @@
+
+class ViewIssuesNewTopHookListener < Redmine::Hook::ViewListener
+ 
+
+end

@@ -1,0 +1,8 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $div_id = "change-<%= journal.id %>";
+    $("#"+$div_id).find("h4").append("<span>(<%= journal.created_on.localtime.strftime('%Y-%m-%d %H:%M:%S') %>)</span>");
+  
+});
+
+</script>

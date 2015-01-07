@@ -1,0 +1,13 @@
+class IssueNewModifyController < ApplicationController
+  unloadable
+
+  
+
+    def assignee_new
+        
+    end
+
+
+
+
+end

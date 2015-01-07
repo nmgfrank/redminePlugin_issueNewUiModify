@@ -1,0 +1,10 @@
+
+class ViewIssuesShowDetailsBottomHookListener < Redmine::Hook::ViewListener
+    def view_issues_show_details_bottom(context={}) 
+        context[:controller].send(:render_to_string, {
+            :partial => "hook/javascript_area_new",
+            :locals => context  
+        })    
+    end
+
+end

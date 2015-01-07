@@ -1,0 +1,26 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+    
+    search_label : "search_label"
+    unchecked_warchers_hide_button_label : "hide unchecked watachers "
+    unchecked_warchers_show_button_label : "show unchecked watachers "
+    hide_closed_issue_label: "Hide Closed Issues"
+    show_closed_issue_label: "Show Closed Issues"
+    issue_new_ui_modify_author_label: "Author"
+    issue_new_ui_modify_last_step_label: "Last Step"
+    issue_new_ui_modify_next_step_label: "Next Step"
+    issue_new_ui_modify_me_label: "Me"
+    
+    permission_add_issue_assignee : "add assignee for issue"
+    
+    label_person_month: "%{value} man-month"
+    field_person_month: " man-month"
+    
+    label_plugin_hours: "%{value} hours"
+    field_plugin_hours: " hours" 
+    
+    permission_view_ticket_time_entries: "View Time Entry of Ticket"     
+    permission_view_self_ticket_time_entries: "View Time Entry of My Ticket"  
+    permission_view_time_entries_report: "View Time Entry Report"   
+    

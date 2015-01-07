@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+        <!-- Add Author in The Assigned_to Select -->       
+        <% if !@issue.author.blank?  %>        
+        $("#issue_assigned_to_id").prepend("<option value='<%= @issue.author.id %>'><< <%= l(:issue_new_ui_modify_author_label) %> >></option>");
+        <% end %>
+        
+        <!-- Add Author in The CF User Select -->     
+        <% if !@issue.author.blank?  %>        
+        $("#all_attributes .user_cf").each(function() {
+            $(this).prepend("<option value='<%= @issue.author.id %>'><< <%= l(:issue_new_ui_modify_author_label) %> >></option>");    
+        
+        });
+        <% end %>
+        
+        <!-- Add Me in The CF User Select -->     
+        <% if !User.current.blank?  %>        
+        $("#all_attributes .user_cf").each(function() {
+            $(this).prepend("<option value='<%= User.current.id %>'><< <%= l(:issue_new_ui_modify_me_label) %> >></option>");    
+        
+        });
+        <% end %>
+       
+        
+    });
+</script>

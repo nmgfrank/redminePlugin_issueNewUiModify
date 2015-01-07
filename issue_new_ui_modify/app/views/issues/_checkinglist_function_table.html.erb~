@@ -1,0 +1,42 @@
+<table id="checkinglist_function_table" class="checkinglist_table checkinglist_function_table" style="width: 80%; margin: 2px auto 2px auto;" border="1"  cellpadding="0" cellspacing="0">
+    <tr><th>项目分类</th><th>判定项目</th><th>判断基准</th><th>确认方法</th><th style='width: 150px;'>确认</th></tr>
+    <tr style='text-align: left;'><th colspan="5">●Review最初要确认的项目</th></tr>
+    <tr style='text-align: left;'><th colspan="5">◆资料的确认</th></tr>
+    <tr><td>资料</td><td>成果物</td><td>有前工程的成果物，Review已完成。</td><td>确认机能式样书以及操作式样书的Review已完成并得到了承认。不过，同时进行机能式样书以及操作式样书和机能Test式样书的Review时，可以之后汇总一起接受承认。</td><td id="<%= mode %>_confirm_id_75"></td></tr>
+    <tr><td>文章</td><td>体裁</td><td>文章的体裁统一。</td><td>是否按照定义使用了用语，记号。
+文体是否統一了。参照处的Path和File名有无错误。记载Version、变更履历了吗？</td><td id="<%= mode %>_confirm_id_76"></td></tr>
+   
+    <tr style='text-align: left;'><th colspan="5">●Review中要确认的项目</th></tr>
+    <tr><td rowspan='4'>环境</td><td rowspan='4'>环境</td><td rowspan='3'>已明确了Test所需要的环境。</td><td>确认已明确了是在实走试验，机上试验，实机、Simulator等、哪个上面进行Test。</td><td id="<%= mode %>_confirm_id_77"></td></tr>
+    <tr><td>确认已明确了Test所需的实机和需要连接的外部设备。有”PP品以后需要”等限制的场合要记载其限制。</td><td id="<%= mode %>_confirm_id_78"></td></tr>
+    <tr><td>确认已明确了Test所需的冶具，测定器，Tool。</td><td id="<%= mode %>_confirm_id_79"></td></tr>
+    <tr><td>可以记载Test中使用的机材，SoftwareVersion。</td><td>可以记载Test日、试验中使用的Target的名字和番号、使用的外部Unit 、Software version、Data version。</td><td id="<%= mode %>_confirm_id_80"></td></tr>
+    <tr><td rowspan='2'>Test对象</td><td>对象</td><td>要Test的对象Module明确，且对象范围妥当。</td><td>确认已明确机能Test的对象。确认 不仅只有变更点其影响范围全都为机能Test对象。</td><td id="<%= mode %>_confirm_id_81"></td></tr>
+    <tr><td>分担</td><td>明确与其他Group间的责任范围。</td><td>光凭自己Group无法Test的机能，确认明确了与其他Group间的作业范围，分担。</td><td id="<%= mode %>_confirm_id_82"></td></tr>
+    <tr><td rowspan='8'>Test项目</td><td>网罗性</td><td>毫无遗漏地检证机能式样书，操作式样书中所记载的内容。
+另外、有没有所有的条件和组合。</td><td>确认 毫无遗漏地检证了机能式样书，操作式样书的Test对象部分。</td><td id="<%= mode %>_confirm_id_83"></td></tr>
+    <tr><td>粒度</td><td>1个Test项目中仅进行１个状态的确认。</td><td>确认有没有将多个状态变化和多个动作作为1个Test项目。</td><td id="<%= mode %>_confirm_id_84"></td></tr>
+    <tr><td>手顺</td><td>实施Test的手顺明确。</td><td>确认Test的手顺明确。</td><td id="<%= mode %>_confirm_id_85"></td></tr>
+    <tr><td>确认方法</td><td>已明确了Test结果OK的基准。</td><td>尽量具体记载做怎样的确认判断为OK。</td><td id="<%= mode %>_confirm_id_86"></td></tr>
+    <tr><td>Error</td><td>不仅正常动作要test，对异常系的动作也要进行Test。</td><td>确认异常系的动作是否也当作Test项目了。Error状态后的动作也是Test项目。</td><td id="<%= mode %>_confirm_id_87"></td></tr>
+    <tr><td>Diag, Test mode</td><td>即使End User不使用、作为制品所需的机能的试验中不应有遗漏。</td><td>确认是否也实施了Diag和Test mode的test。</td><td id="<%= mode %>_confirm_id_88"></td></tr>
+    <tr><td rowspan='2'>境界值</td><td>值有范围的试验项目</td><td>确认値有范围的试验项目中已实施了、最小値和比其小的値、最大値和比其大的値、中间值，NULL的Test。</td><td id="<%= mode %>_confirm_id_89"></td></tr>
+    <tr><td>有多个选择项目的Test（List形式等）</td><td>确认选择项目是否全已Test了。
+List形式等件数非常多、难以test全部的场合，从上限・下限・上限中测试数件、中间。设计书中如果有写临界值的话其周辺也要试验。</td><td id="<%= mode %>_confirm_id_90"></td></tr>
+  
+
+    <tr style='text-align: left;'><th colspan="5">●Review最后要确认的项目</th></tr>
+    <tr style='text-align: left;'><th colspan="5">◆其他Checklist的确认</th></tr>
+    <tr><td>设计基准书</td><td>设计基准的确认</td><td>进行设计基准书的判定。</td><td>确认设计基准书的Check结果全部OK。
+使用最新Version的设计基准书。</td><td id="<%= mode %>_confirm_id_91"></td></tr>
+
+
+    <tr style='text-align: left;'><th colspan="5">◆议事录的确认</th></tr>
+    <tr><td>前工程的成果物</td><td>反映到前工程的成果物</td><td>前工程的成果物中需要变更的场合，其内容应记载到了议事录中。</td><td>确认：前工程的成果物的变更内容要记载。</td><td id="<%= mode %>_confirm_id_92"></td></tr>
+    <tr><td>议事录</td><td>会议记录的确认</td><td>关于会议记录的指摘内容、明确了处理方法。</td><td>将Review中指出的指摘项目输入到Anyplace指摘项目表中、明确对应内容、对应者、对应期限。</td><td id="<%= mode %>_confirm_id_93"></td></tr>
+
+    
+   
+    
+    
+</table>

@@ -1,0 +1,67 @@
+<table id="checkinglist_basic_table" class="checkinglist_table checkinglist_basic_table" style="width: 80%; margin: 2px auto 2px auto;" border="1"  cellpadding="0" cellspacing="0">
+    <tr><th>项目分类</th><th>判定项目</th><th>判断基准</th><th>确认方法</th><th style='width: 150px;'>确认</th></tr>
+    <tr style='text-align: left;'><th colspan="5">●Review开始时确认的项目</th></tr>
+
+    
+    <tr><td rowspan='2'>INPUT资料的确认</td><td rowspan='2'>INPUT资料的确认</td><td rowspan='2'>前工程的成果物和其它Group的资料等、全部的INPUT资料都齐全了。</td><td>作成参照的INPUT成果物的List。
+List中记述資料的名称、Version、便于之後可以確認。</td><td id="<%= mode %>_confirm_id_43"></td></tr>
+    <tr><td>确认開発計画時規定的所需的INPUT成果物全都齐全。
+</td><td id="<%= mode %>_confirm_id_44"></td></tr>
+    <tr><td>设计式样书（基本设计）的确认</td><td>体裁</td><td>文章体裁统一。</td><td>用语、记号是否按照定义使用。文体是否统一。参照地的Path和File名中是否有错误.Version、变更履历是否记载了？</td><td id="<%= mode %>_confirm_id_45"></td></tr>
+    <tr><td>明确review责任者</td><td>明确review责任者</td><td></td><td>[备注]里记入责任者的名字</td><td id="<%= mode %>_confirm_id_46"></td></tr>
+    <tr><td></td><td>指摘后明确对应人</td><td></td><td>指摘对应者及mail确认</td><td id="<%= mode %>_confirm_id_47"></td></tr>
+    <tr><td>情报展开</td><td>明确展开范围</td><td></td><td>今回の成果物に展開が必要な部署を明記していることを確認する。</td><td id="<%= mode %>_confirm_id_48"></td></tr>
+    <tr><td></td><td>关联组也要参加review</td><td></td><td>成果物に記載されてる展開が必要な部署の担当者はレビューに参加していることを確認する。</td><td id="<%= mode %>_confirm_id_49"></td></tr>
+    <tr><td>Rule的确认</td><td>每个Layer的Ｉ／Ｆ作成Rule</td><td>每个Layer有Ｉ／Ｆ作成的Rule的话，都要遵守其Rule。</td><td>Service开发者，要参照开发方针Rule「GUI向け公開资料作成方法」。
+Driver开发者要参照MSDN。</td><td id="<%= mode %>_confirm_id_50></td></tr>
+
+
+    <tr style='text-align: left;'><th colspan="5">●Review中确认的项目</th></tr>
+    <tr style='text-align: left;'><th colspan="5">◆UML</th></tr> 
+    <tr><td>Use case</td><td>Use case</td><td>Use case要明确记载，没有遗漏。</td><td>参照INPUT成果物，必要机能要通过Use case明确记载，没有遗漏。启动时、结束时、Suspend/Resume、电源断对应也要记载。</td><td id="<%= mode %>_confirm_id_51"></td></tr>
+    <tr><td>Module構成</td><td>Module構成</td><td>各Module的机能・作用、职责要明确。</td><td>各Module的机能・作用、职责要明确。Module构成通过Component图、Package图、Class图来记载。</td><td id="<%= mode %>_confirm_id_52"></td></tr>
+    <tr><td rowspan='5'>Sequence</td><td rowspan='5'>Sequence図</td><td>Module间的控制／Data的流程要明确。</td><td>确认：Module间的Sequence通过Sequence图等记载了。（Module内的Sequence在详细设计的工程中检讨就ok了）</td><td id="<%= mode %>_confirm_id_53"></td></tr>
+    <tr><td>Deadlock</td><td>确认：Thread间，无等待条件重复、无Deadlock。</td><td id="<%= mode %>_confirm_id_54"></td></tr>
+    <tr><td>排他控制</td><td>确认：多个Thread和导入处理中共享Memory的时候，在做排他控制。</td><td id="<%= mode %>_confirm_id_55"></td></tr>
+    <tr><td>Error処理</td><td>确认：处理中发生Error的时候的动作也要记载。</td><td id="<%= mode %>_confirm_id_56"></td></tr>
+    <tr><td>起動、終了</td><td>确认：启动时、结束时、Suspend/Resume要记载。</td><td id="<%= mode %>_confirm_id_57"></td></tr>
+ 
+    <tr style='text-align: left;'><th colspan="5">◆ModuleReference</th></tr>
+    <tr><td rowspan='10'>函数Reference</td><td rowspan='7'>参数、返回值</td><td>函数的Parameter不是5个以上。
+如果，存在5个以上的Parameter的话，要确认好以下内容：
+・能够以相同含义归纳的时候，通过参照构造体和Class，还通过传递Pointer，可以减少Parameter吗？
+・不能以相同含义归纳的时候，Parameter多的话，可以改变函数的意图和目的吗？</td><td>确认：函数中使用的Parameter的使用方法、目的、意图，都记载了。确认：存在5个以上（到4个是OK的）的Parameter的时候，其理由也要记载。</td><td id="<%= mode %>_confirm_id_58"></td></tr>
+    <tr><td rowspan='2'>要记载输入/输出值的有效范围和单位。</td><td>有有效范围的时候，确认记载了有效范围。
+确认：输入有效范围外的值的时候，要返回Error，还是无视，要记载。</td><td id="<%= mode %>_confirm_id_59"></td></tr>
+    <tr><td>确认：参数和返回值中，记载了单位。
+确认：BCD（Binary Coded Decimal）用于输入/输出的时候，要记载是BCD。</td><td id="<%= mode %>_confirm_id_60"></td></tr>
+    <tr><td rowspan='3'>字符串用于输入/输出的时候，要明确记载必要的情报。</td><td>字符串（CHAR,WCHAR,NCHAR等）用于输入/输出的时候，确认：明确记载了終端是否有NULL指定。</td><td id="<%= mode %>_confirm_id_61"></td></tr>
+    <tr><td>确认：记载了字符集。</td><td id="<%= mode %>_confirm_id_62"></td></tr>
+    <tr><td>处理字符的Size时，确认：
+明确记录了是字符数？还是byte数？終端是否也包含在count中了。</td><td id="<%= mode %>_confirm_id_63"></td></tr>
+    <tr><td>要恰当设计值的传递方法。</td><td>确认：参数和返回值中，使用了Class、构造体、共用体的場合，Pointer、参照、赋值调用的选择是否设计合理。
+Class和构造体、共用体在赋值调用的时候，Copy的Overhead后，Performance变差，所以要检讨其它的赋值方法（const 参照等）。</td><td id="<%= mode %>_confirm_id_64"></td></tr>
+    <tr><td rowspan='2'>Error</td><td rowspan='2'>Error内容要明确记载。</td><td>确认：是否明确了用返回值返回Error的时候，返回什么Error。</td><td id="<%= mode %>_confirm_id_65"></td></tr>
+    <tr><td>确认：Error发生时的对应，其处理方法明确存在的时候，要记载。</td><td id="<%= mode %>_confirm_id_66"></td></tr>
+    
+    <tr><td>関数仕様</td><td>作为函数式样，确认是否Thread Safe。</td><td>确认：作为对象的函数，是否从多个Thread(Process)中引用（Thread Safe）。
+如果没有的话，确认：是否作为限制事项明确记载了。</td><td id="<%= mode %>_confirm_id_67"></td></tr>
+    <tr><td>Event Reference</td><td>Event作成Rule</td><td>遵守Event作成Rule</td><td>确认：各个Layer中规定的Event作成Rule是否被遵守了。Apl的场合，参照开发方针Rule。</td><td id="<%= mode %>_confirm_id_68"></td></tr>
+
+
+    <tr style='text-align: left;'><th colspan="5">◆全部的注意事项</th></tr>
+    <tr><td>同步・非同步</td><td>同步・非同步</td><td>是否是同步・非同步处理要明确。</td><td>确认非同步的場合、是否记载是非同步和关联Event。</td><td id="<%= mode %>_confirm_id_69"></td></tr>
+    <tr><td>Modular Design（Software Product Line）</td><td>Modular Design（Software Product Line）</td><td>设计要考虑到仕向和LineUp的机能差异。</td><td>确认：设计是否考虑到了要件定义和机能式样书中记载的机能差分。
+确认：不同机能的实装方法要记载。请参照开发方针Rule「考虑变动点的设计方针」　※１</td><td id="<%= mode %>_confirm_id_70"></td></tr>
+    <tr><td>Performance</td><td>Performance</td><td>设计要考虑到Performance</td><td>Performance的检讨内容要记载。Performance没有影响的场合，也要记载。</td><td id="<%= mode %>_confirm_id_71"></td></tr>
+    <tr><td>DRBFM</td><td>DRBFM</td><td>要反映DRBFM的结果。</td><td>确认：应该反映到DRBFM的设计的项目，要反映到设计式样中。
+确认：有其它Group、其它机能的DRBFM的依赖的项目，也没有遗漏。</td><td id="<%= mode %>_confirm_id_72"></td></tr>
+
+
+    <tr style='text-align: left;'><th colspan="5">◆会议记录的确认</th></tr>
+    <tr><td>前工程的成果物</td><td>向前工程的成果物的反映</td><td>前工程的成果物中需要变更的場合、其内容要记录到会议记录中。</td><td>确认：前工程的成果物的变更内容要记载。</td><td id="<%= mode %>_confirm_id_73"></td></tr>
+    <tr><td>会议记录</td><td>会议记录的确认</td><td>针对会议记录的指摘内容，处理方法要明确。</td><td>Review出的指摘项目，要确认管理方式，对应内容、对应者、对应期限要明确。
+</td><td id="<%= mode %>_confirm_id_74"></td></tr>
+    
+    
+</table>

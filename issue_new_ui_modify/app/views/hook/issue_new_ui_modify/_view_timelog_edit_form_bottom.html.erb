@@ -1,0 +1,28 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+    <% is_timelog = false %>
+    <% @project.trackers.each do |tracker| %>
+        <% if tracker.name == "TimeLog" %>
+           <% is_timelog = true %>        
+        <% end %>
+    <% end %>
+
+
+   $("#content p label").each(function() {
+      if ($(this).attr("for") == "time_entry_hours") {
+        <% if is_timelog %>
+            $(this).html("<%= l(:field_person_month) %><span class=\"required\"> *</span>");   
+        <% else %>
+            $(this).html("<%= l(:field_plugin_hours) %><span class=\"required\"> *</span>");
+            
+        <% end %>
+      }
+   }); 
+
+
+
+
+});
+
+</script>

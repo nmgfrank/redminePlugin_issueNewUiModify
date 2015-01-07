@@ -1,0 +1,38 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#watchers_form").append("<span id='hide_unchecked_button'><%= l(:unchecked_warchers_show_button_label) %></span><input id='hide_unchecked_status' value='hide' type='hidden' >");
+    $("#watchers_inputs input").each(function() {
+        if ($(this).attr("checked") != "checked") {
+           $(this).parent().hide();
+        }
+    });
+
+    $("#hide_unchecked_button").click(function() {
+        status = $("#hide_unchecked_status").val();
+        
+        if (status == 'hide') {
+            $(this).html("<%= l(:unchecked_warchers_hide_button_label) %>");
+            $("#hide_unchecked_status").val('show');
+            $("#watchers_inputs input").each(function() {
+                if ($(this).attr("checked") != "checked") {
+                   $(this).parent().show();
+                }
+            });
+        } else {
+            $(this).html("<%= l(:unchecked_warchers_show_button_label) %>");
+            $("#hide_unchecked_status").val('hide');
+            $("#watchers_inputs input").each(function() {
+                if ($(this).attr("checked") != "checked") {
+                   $(this).parent().hide();
+                }
+            });
+        }
+
+
+    });
+
+    
+
+});
+
+</script>

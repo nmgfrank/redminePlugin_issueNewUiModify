@@ -1,0 +1,25 @@
+# English strings go here for Rails i18n
+zh:
+  # my_label: "My label"
+    search_label : "查找"
+    unchecked_warchers_hide_button_label : "隐藏未选择的用户"
+    unchecked_warchers_show_button_label : "显示未选择的用户"
+    hide_closed_issue_label: "隐藏关闭的任务"
+    show_closed_issue_label: "显示关闭的任务"
+    issue_new_ui_modify_author_label: "作者"
+    issue_new_ui_modify_me_label: "我"
+    
+    issue_new_ui_modify_last_step_label: "上一步"
+    issue_new_ui_modify_next_step_label: "下一步"
+    
+    permission_add_issue_assignee : "添加指派给"
+    
+    label_person_month: "%{value} 人月"
+    field_person_month: " 人月"
+    
+    label_plugin_hours: "%{value} 小时"
+    field_plugin_hours: " 小时"   
+ 
+    permission_view_ticket_time_entries: "查看问题票耗时"     
+    permission_view_self_ticket_time_entries: "查看自己的问题票耗时"  
+    permission_view_time_entries_report: "查看耗时报告"

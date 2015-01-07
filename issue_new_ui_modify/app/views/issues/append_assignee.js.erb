@@ -1,0 +1,6 @@
+<% if !@assignee_user_id.nil? %>
+    user_id_str = '<%= @assignee_user_id %>';
+    user_id = parseInt(user_id_str);
+
+    $("#issue_assigned_to_id").val(user_id_str);
+<% end %>

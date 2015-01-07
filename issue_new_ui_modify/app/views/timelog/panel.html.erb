@@ -1,0 +1,88 @@
+<% if User.current.allowed_to?(:view_ticket_time_entries, @project) || (User.current.allowed_to?(:view_self_ticket_time_entries, @project) && (@issue.assigned_to_id == User.current.id) ) %>
+
+
+<div class="contextual">
+    <%= link_to l(:button_log_time), 
+            {:controller => 'timelog', :action => 'new', :project_id => @project, :issue_id => @issue},
+            :class => 'icon icon-time-add' if User.current.allowed_to?(:log_time, @project, :global => true) %>
+</div>
+
+
+    <h2>
+        <%= l(:label_spent_time) %>
+        <%=  link_to "##{@issue.id}: #{@issue.subject}", {:controller => "issues", :action => "show", :id => @issue.id}  %>
+    </h2>
+
+
+
+<% unless @entries.empty? %>
+    <%= render :partial => 'list', :locals => { :entries => @entries }%>
+    <p class="pagination"><%= pagination_links_full @entry_pages, @entry_count %></p>
+
+    <% other_formats_links do |f| %>
+      <%= f.link_to 'Atom', :url => params.merge({:issue_id => @issue, :key => User.current.rss_key}) %>
+      <%= f.link_to 'CSV', :url => params, :onclick => "showModal('csv-export-options', '330px'); return false;" %>
+    <% end %>
+
+    <div id="csv-export-options" style="display:none;">
+      <h3 class="title"><%= l(:label_export_options, :export_format => 'CSV') %></h3>
+      <%= form_tag(params.slice(:project_id, :issue_id).merge(:format => 'csv', :page=>nil), :method => :get, :id => 'csv-export-form') do %>
+      <%= query_hidden_tags @query %>
+      <p>
+        <label><%= radio_button_tag 'columns', '', true %> <%= l(:description_selected_columns) %></label><br />
+        <label><%= radio_button_tag 'columns', 'all' %> <%= l(:description_all_columns) %></label>
+      </p>
+      <p class="buttons">
+        <%= submit_tag l(:button_export), :name => nil, :onclick => "hideModal(this);" %>
+        <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+      </p>
+      <% end %>
+    </div>
+<% end %>
+
+<% html_title l(:label_spent_time), l(:label_details) %>
+
+<% content_for :header_tags do %>
+    <%= auto_discovery_link_tag(:atom, {:issue_id => @issue, :format => 'atom', :key => User.current.rss_key}, :title => l(:label_spent_time)) %>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    <% is_timelog = false %>
+    <% @project.trackers.each do |tracker| %>
+        <% if tracker.name == "TimeLog" %>
+           <% is_timelog = true %>       
+                $(".list th").each(function() {
+                    if ($(this).find("a").html() == "<%= l(:field_hours) %>") {
+                        $(this).find("a").html("<%= l(:field_person_month) %>"); 
+                    }
+                }); 
+                
+                $("#add_filter_select option").each(function() {
+                    if ($(this).val() == "hours") {
+                        $(this).text("<%= l(:field_person_month) %>");
+                    }
+                });
+                $("#tr_hours label").each(function() {
+                    if ($(this).html() == " <%= l(:field_hours) %>") {
+                        $(this).html("<%= l(:field_person_month) %>");
+                    }
+                
+                });
+                availableFilters["hours"]["name"] = "<%= l(:field_person_month) %>";      
+        <% end %>
+    <% end %>    
+});
+
+</script>
+
+<% else %>
+    <% flash.now[:error] = "Hello current action"   %>
+<% end %>
+
+
+
+
+
+
+

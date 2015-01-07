@@ -1,0 +1,81 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    $("#issue_tree p").each(function() {
+        if ($(this).html().length >0 ) {
+            $(this).append("<a id='hide_closed_sub_issue' style='margin-left: 30px;cursor:pointer;'><%= l(:hide_closed_issue_label) %></a><input type='hidden' value='show' id='closed_sub_issue_status' >");
+        }
+        closed_cnt = 0;
+        open_cnt = 0;
+        $("#issue_tree").find(".subject").find("a").each(function() {
+            class_str = $(this).attr("class");
+            class_array = class_str.split(" ");
+            is_closed = false;
+            for (idx in class_array) {
+                class_detail = class_array[idx];
+                if (class_detail == "closed") {
+                    is_closed = true;
+                    if (status == "hide") {
+                        $(this).parent().parent().hide();
+                    } else {
+                        $(this).parent().parent().show();
+                    }                    
+                } 
+            }
+            
+            if (is_closed == true) {
+                closed_cnt += 1;
+            } else {
+                open_cnt += 1;
+            }
+        });  
+        
+        if (closed_cnt == 0) {
+            $("#hide_closed_sub_issue").hide();
+        }  
+        
+        if (open_cnt > 0) {
+            $("#issue_tree p").attr("title", "存在未关闭的子任务， 父任务无法关闭");
+        }    
+        
+    });
+    
+    var status = 'show';
+    subIssueHideAndShow();
+    $("#hide_closed_sub_issue").click(function() {
+        subIssueHideAndShow();
+    });
+  
+    function subIssueHideAndShow() {
+        //status = $("#closed_sub_issue_status").val();
+        if (status == "hide") {
+            //$("#closed_sub_issue_status").val('show');
+            status = 'show';
+            $("#hide_closed_sub_issue").html("<%= l(:hide_closed_issue_label) %>");
+        } else {
+            //$("#closed_sub_issue_status").val('hide');
+            status = 'hide';
+            $("#hide_closed_sub_issue").html("<%= l(:show_closed_issue_label) %>");
+        }
+        $("#issue_tree").find(".subject").find("a").each(function() {
+            class_str = $(this).attr("class");
+            class_array = class_str.split(" ")
+            for (idx in class_array) {
+                class_detail = class_array[idx];
+                if (class_detail == "closed") {
+                    if (status == "hide") {
+                        $(this).parent().parent().hide();
+                    } else {
+                        $(this).parent().parent().show();
+                    }                    
+
+                } 
+            }
+        });    
+    
+    }
+
+});
+
+</script>

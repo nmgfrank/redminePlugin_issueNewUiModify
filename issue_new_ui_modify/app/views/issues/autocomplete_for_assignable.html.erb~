@@ -1,0 +1,6 @@
+<%  @issue.assignable_users.each do |user| %>
+    <label style='display:block;'>
+        <input name='assignables' class='assignables' value='<%= user.id %>' type='radio' /> <%= user.name %>
+    </label>
+<% end %>
+

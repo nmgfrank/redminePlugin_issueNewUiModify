@@ -1,0 +1,12 @@
+
+class ViewIssuesHistoryJournalBottomHookListener < Redmine::Hook::ViewListener
+    def view_issues_history_journal_bottom(context={}) 
+        params = context[:params]
+        journal = params[:journal]
+        context[:controller].send(:render_to_string, {
+            :partial => "hook/view_issues_history_journal_bottom",
+            :locals => context  
+        })    
+    end
+
+end
